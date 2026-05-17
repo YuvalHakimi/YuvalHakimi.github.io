@@ -1,98 +1,327 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yuval Hakimi | Portfolio</title>
+  <meta name="description" content="יובל חכימי — קורות חיים. ניסיון תעסוקתי, שירות צבאי, השכלה, חוזקות ויצירת קשר." />
+  <meta name="theme-color" content="#0e0e0e" />
+  <title>יובל חכימי | קורות חיים</title>
   <style>
+    :root {
+      --bg: #0e0e0e;
+      --surface: #161616;
+      --text: #f4f4f4;
+      --muted: #b8b8b8;
+      --accent: #ffcc00;
+      --border: #2a2a2a;
+      --max-width: 40rem;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0e0e0e;
-  color: #f4f4f4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+      direction: rtl;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1.25rem 2.5rem;
+    }
+
     header {
       text-align: center;
-      padding: 60px 20px 20px;
+      padding: clamp(3rem, 8vw, 4rem) 1.25rem 1.5rem;
+      max-width: var(--max-width);
     }
+
     header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.35em;
     }
-    header p {
-      font-size: 1.2em;
-      color: #bbbbbb;
+
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 0;
     }
+
     section {
-      max-width: 800px;
-      width: 90%;
-      margin: 16px 0;
+      max-width: var(--max-width);
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.35rem 1.5rem;
+      margin-bottom: 1rem;
+      text-align: right;
     }
-    h2 {
-      color: #ffcc00;
-      border-bottom: 1px solid #444;
-      padding-bottom: 5px;
+
+    section h2 {
+      color: var(--accent);
+      font-size: 1.15rem;
+      margin: 0 0 0.85em;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid var(--border);
     }
-    ul {
-      padding-left: 20px;
+
+    section p {
+      margin: 0 0 1em;
     }
+
+    section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .highlights li {
+      padding: 0.35em 0.75em;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.95rem;
+    }
+
+    .resume-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .resume-list li {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resume-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .resume-list li:first-child {
+      padding-top: 0;
+    }
+
+    .item-title {
+      font-weight: 600;
+    }
+
+    .edu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .edu-list li {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .edu-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .edu-list li:first-child {
+      padding-top: 0;
+    }
+
+    .edu-school {
+      font-weight: 600;
+    }
+
+    .edu-detail {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 0.2em;
+    }
+
+    .details {
+      margin: 0;
+      padding-right: 1.25rem;
+    }
+
+    .details li {
+      margin-bottom: 0.35em;
+    }
+
+    .details li:last-child {
+      margin-bottom: 0;
+    }
+
+    .note {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.75rem;
+    }
+
+    .ltr {
+      direction: ltr;
+      unicode-bidi: plaintext;
+    }
+
+    .contact-links .sep {
+      color: var(--border);
+      user-select: none;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+      transition: color 0.15s ease, opacity 0.15s ease;
+    }
+
+    a:hover {
+      opacity: 0.9;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
     footer {
-      margin-top: auto;
-      padding: 20px;
-      font-size: 0.9em;
+      width: 100%;
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 0.875rem;
       color: #666;
     }
-    a {
-      color: #ffcc00;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+
+    @media (prefers-reduced-motion: reduce) {
+      a {
+        transition: none;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Yuval Hakimi</h1>
-    <p>Computer Science Student | Programmer</p>
+    <h1>יובל חכימי</h1>
+    <p class="tagline">קורות חיים</p>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I am currently studying Computer Science at The Open University and have experience in multiple programming languages. I'm a self-learner, passionate about software development, algorithms, and building useful tools.</p>
-    <p>During my military service, I was responsible for leading a team of 4 soldiers. I created Python scripts to automate Excel-based workflows, significantly boosting efficiency and saving valuable time. I taught myself these skills and developed the tools on my own initiative and during my free time, driven by a personal interest in improving systems and processes.</p>
-  </section>
+  <main>
+    <section aria-labelledby="about-heading">
+      <h2 id="about-heading">פרופיל אישי</h2>
+      <p>בעל ניסיון מעשי בסביבת סטארטאפ ובשירות צבאי, לצד יכולת למידה עצמית גבוהה, אחריות אישית, ניסיון בהובלת אנשים וגישה פרקטית לשיפור תהליכים ופתרון בעיות.</p>
+      <p>במשך מעל שמונה חודשים אני עובד כמתכנת Full Stack בתחום ה-AI, בסביבה דינמית הדורשת למידה מהירה, עצמאות, תקשורת טובה והבנה של צרכים עסקיים ותפעוליים. הניסיון הזה חיזק אצלי את היכולת להתמודד עם אתגרים משתנים ולתרגם רעיונות לפתרונות מעשיים.</p>
+    </section>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>Java</li>
-      <li>Python</li>
-      <li>C#</li>
-      <li>SQL</li>
-      <li>JavaScript</li>
-    </ul>
-  </section>
+    <section aria-labelledby="experience-heading">
+      <h2 id="experience-heading">ניסיון תעסוקתי</h2>
+      <ul class="resume-list">
+        <li>
+          <span class="item-title">חברת סטארטאפ</span>
+          <span class="edu-detail">מתכנת Full Stack בתחום ה-AI · מעל 8 חודשים</span>
+          <ul class="details">
+            <li>עבודה בסביבת סטארטאפ דינמית בתחום ה-AI, הדורשת עצמאות, למידה מהירה ופתרון בעיות.</li>
+            <li>ביצוע משימות מעשיות תוך הבנת צרכים עסקיים, תפעוליים וטכנולוגיים.</li>
+            <li>התמודדות עם דרישות משתנות ושימוש בחשיבה אנליטית כדי להגיע לפתרונות יעילים.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>NFL Stats Tracker [WIP]</strong></li>
-      <li><strong>Game Damage Calculator</strong></li>
-    </ul>
-  </section>
+    <section aria-labelledby="military-heading">
+      <h2 id="military-heading">שירות צבאי</h2>
+      <ul class="resume-list">
+        <li>
+          <span class="item-title">אחראי צוות במיטב</span>
+          <span class="edu-detail">גיוס ושיבוץ חיילי צה"ל, בשיתוף קציני המיון בצה"ל · אחריות על צוות של ארבעה חיילים</span>
+          <ul class="details">
+            <li>עיסוק בתהליכי גיוס ושיבוץ חיילי צה"ל, תוך עבודה מול גורמים רבים במערכת הצבאית.</li>
+            <li>ניהול משימות שוטפות, תיאום בין חברי הצוות ומתן מענה לצרכים יומיומיים.</li>
+            <li>יוזמה לשיפור תהליכי עבודה שהתבססו על אקסל באמצעות בניית כלים פנימיים לאוטומציה.</li>
+            <li>צמצום עבודה ידנית, חיסכון בזמן ושיפור היעילות והאמינות של תהליכי העבודה.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>
-      <a href="https://github.com/YuvalHakimi" target="_blank">GitHub</a> | 
-      <a href="mailto:yhakimi@outlook.com">Email</a>
-    </p>
-  </section>
+    <section aria-labelledby="education-heading">
+      <h2 id="education-heading">השכלה</h2>
+      <ul class="resume-list">
+        <li>
+          <span class="item-title">תעודת בגרות מלאה</span>
+          <span class="edu-detail">5 יחידות מתמטיקה, פיזיקה, מדעי המחשב ואנגלית</span>
+        </li>
+        <li>
+          <span class="item-title">האוניברסיטה הפתוחה</span>
+          <span class="edu-detail">השלמת מספר מצומצם של קורסים במדעי המחשב</span>
+        </li>
+      </ul>
+    </section>
 
+    <section aria-labelledby="strengths-heading">
+      <h2 id="strengths-heading">חוזקות</h2>
+      <ul class="highlights">
+        <li>אחריות</li>
+        <li>יכולת למידה עצמית</li>
+        <li>חשיבה אנליטית</li>
+        <li>פתרון בעיות</li>
+        <li>הובלת צוות</li>
+        <li>שיפור תהליכים</li>
+        <li>עבודת צוות</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="objective-heading">
+      <h2 id="objective-heading">מטרה לימודית</h2>
+      <p>להעמיק את הידע בתחומי מנהל עסקים, ניהול, תפעול וקבלת החלטות, תוך שילוב ניסיון מעשי מסביבת סטארטאפ ומהשירות הצבאי, לצד משמעת אישית, יוזמה ויכולת למידה מהירה.</p>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">יצירת קשר</h2>
+      <p class="contact-links">
+        <a class="ltr" href="mailto:yhakimi@outlook.com">yhakimi@outlook.com</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a class="ltr" href="tel:+972542881696">054-2881696</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> יובל חכימי</p>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
